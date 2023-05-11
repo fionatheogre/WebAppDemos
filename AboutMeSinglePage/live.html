@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="item1" style="background-color: pink;"><h1>Fiona</h1></div>
+  <div class="item2">
+    <a href="index-grid.html">Home</a> <br><br>
+    <a href="like.html">What I like</a> <br><br>
+    <a href="favorite.html">Favorite sites</a> <br><br>
+    <a href="live.html"><b>Where I've lived</b></a> <br><br>
+  </div>
+  <div class="item3" style="background-color: lightblue;">
+    <b>I've lived in Wisconsin, New York, California, Vermont</b><br><br>
+</div>  
+  <div class="item5" style="text-align: right; background-color: yellow;">Copyright &copy; 2023</div>
+</div>
+
+</body>
+</html>

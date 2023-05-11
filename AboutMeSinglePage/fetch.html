@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Fetch test</title>
+
+</head>
+
+<body>
+    <button id='b' onclick="pressed()">Click me</button>
+    <br><br>
+    <img id='response' width="200" height="200"></img>
+    <script>
+        function pressed(e) {
+            var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/P1030323.JPG/440px-P1030323.JPG", 
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/440px-Oranges_-_whole-halved-segment.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/440px-Pink_lady_and_cross_section.jpg"];
+            let randPos = Math.floor(Math.random() * 3);
+            let randUrl = images[randPos];
+            fetch(randUrl)
+                .then(function (response) { return response; })
+                .then(function (data) {
+                    document.querySelector('#response').src = data.url;
+                });
+        }
+
+    </script>
+</body>
+
+</html>
