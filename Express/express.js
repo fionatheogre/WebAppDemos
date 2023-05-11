@@ -27,6 +27,16 @@ app.get('/textresponse', function(req, res) {
   res.send("Thank you for clicking on me");
 });
 
+app.get('/getimage', function(req, res) {
+  const r = Math.floor(Math.random() * (5 - 1) + 1);
+  const filename = "Images/" + r + ".jpg";
+  res.send(filename);
+}); 
+
+app.get('/showimage', function(req, res) {
+  res.sendFile(path.join(__dirname, 'images.html'));
+});
+
 // This code return jpg images, html, css, and js files
 // The first parameter is an array of file extensions to match
 app.get(['/*.jpg', '/*.css', '/*.html', '/*.js'], function (req, res) {
