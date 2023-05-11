@@ -12,14 +12,36 @@
 
 <body>
     <!-- put previous and next buttons here -->
-
+    <button onclick="previous();">Previous</button>
+    <button onclick="next();">Next</button>
     <!-- put a div here to show the result -->
-
+    <button onclick="updateWords();">Update Words</button>
+    <p id="words"></p>
     <script>
         // keep track of your current position in the list
         // and pass it to the server along with if you want
         // to get the next set or previous set of words (based
         // on which button was clicked)
+        let position = 0;
+        
+        function previous() {
+            position -= 20;
+            updateWords();
+        }
+
+        function next() {
+            position += 20;
+            updateWords();
+        }
+
+        function updateWords() {
+            console.log("update words")
+            fetch("/words?index=" + position).then(response => {
+                return response.text();
+            }).then(data => {
+                document.querySelector("#words").innerHTML = data;
+            });
+        }
     </script>
 </body>
 
